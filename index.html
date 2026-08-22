@@ -1,0 +1,1252 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dr Vishal Kundnani | Spine Surgeon Mumbai</title>
+  <meta name="description" content="Recreated website for Dr Vishal Kundnani, spine surgeon in Mumbai.">
+  <link rel="preconnect" href="https://www.spinesurgeonmumbai.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue: #0b5e8d;
+      --deep: #07547e;
+      --navy: #16124d;
+      --sky: #eaf5fb;
+      --cyan: #47a7d2;
+      --ink: #333232;
+      --muted: #6e7882;
+      --line: #dce5eb;
+      --soft: #f5f8fb;
+      --white: #fff;
+      --shadow: 0 16px 40px rgba(8, 67, 101, .14);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, Arial, sans-serif;
+      color: var(--ink);
+      background: #fff;
+      line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button, input, select, textarea { font: inherit; }
+
+    .container {
+      width: min(1180px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255,255,255,.98);
+      box-shadow: 0 2px 14px rgba(0,0,0,.08);
+    }
+    .nav-wrap {
+      height: 88px;
+      display: flex;
+      align-items: center;
+      gap: 26px;
+    }
+    .brand { width: 242px; flex: 0 0 auto; }
+    .brand img { width: 100%; height: auto; }
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      flex: 1;
+    }
+    .nav-item { position: relative; }
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 29px 10px;
+      font-size: 15px;
+      font-weight: 700;
+      color: #303030;
+      white-space: nowrap;
+    }
+    .nav-link.active, .nav-link:hover { color: var(--deep); }
+    .chev {
+      width: 9px;
+      height: 9px;
+      border-right: 2px solid currentColor;
+      border-bottom: 2px solid currentColor;
+      transform: rotate(45deg) translateY(-2px);
+    }
+    .dropdown {
+      position: absolute;
+      top: 78px;
+      left: 0;
+      min-width: 260px;
+      max-height: 74vh;
+      overflow: auto;
+      background: #fff;
+      border-top: 3px solid var(--deep);
+      box-shadow: var(--shadow);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px);
+      transition: .2s ease;
+      padding: 8px 0;
+    }
+    .nav-item:hover .dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .dropdown a {
+      display: block;
+      padding: 9px 18px;
+      font-size: 14px;
+      color: #343434;
+      border-bottom: 1px solid #f0f3f5;
+    }
+    .dropdown a:hover { color: #fff; background: var(--deep); }
+    .header-cta {
+      flex: 0 0 auto;
+      background: var(--deep);
+      color: #fff;
+      padding: 14px 22px;
+      border-radius: 28px;
+      font-weight: 800;
+      box-shadow: 0 5px 12px rgba(7,84,126,.2);
+    }
+    .menu-toggle {
+      display: none;
+      margin-left: auto;
+      border: 0;
+      background: var(--deep);
+      color: #fff;
+      width: 46px;
+      height: 42px;
+      border-radius: 6px;
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 628px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 84% 32%, rgba(255,255,255,.15), transparent 24%),
+        linear-gradient(90deg, #eaf3f8 0%, #eaf3f8 39%, #80c4e6 62%, #00649b 100%);
+    }
+    .hero:after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -75px;
+      width: 760px;
+      height: 130px;
+      background: rgba(255,255,255,.78);
+      border-radius: 50% 50% 0 0;
+      transform: translateX(-2%);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 44% 30% 26%;
+      min-height: 628px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-copy { padding: 34px 0 70px; }
+    .hero h1 {
+      margin: 0 0 18px;
+      color: var(--deep);
+      font-size: clamp(48px, 6vw, 64px);
+      line-height: .98;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+    .hero h2 {
+      margin: 0 0 10px;
+      font-size: 26px;
+      line-height: 1.08;
+      color: #2b2b2b;
+      font-weight: 800;
+    }
+    .hero .lead {
+      color: var(--deep);
+      font-size: 27px;
+      line-height: 1.12;
+      font-weight: 800;
+      margin: 0 0 22px;
+    }
+    .hero p {
+      font-size: 17px;
+      line-height: 1.7;
+      margin: 0 0 28px;
+      max-width: 560px;
+    }
+    .cta-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 24px;
+      border: 2px solid var(--deep);
+      border-radius: 4px;
+      background: var(--deep);
+      color: #fff;
+      font-weight: 850;
+      text-align: center;
+      line-height: 1.05;
+      cursor: pointer;
+    }
+    .btn.outline { color: var(--deep); background: transparent; }
+    .btn small { display: block; font-size: 10px; }
+    .doctor-hero {
+      align-self: end;
+      justify-self: center;
+      width: min(385px, 100%);
+      max-height: 610px;
+      object-fit: contain;
+      object-position: bottom center;
+      filter: drop-shadow(0 10px 22px rgba(0,0,0,.18));
+      animation: riseIn .8s ease both;
+    }
+    .hero-features {
+      justify-self: end;
+      width: 210px;
+      color: #fff;
+      text-shadow: 0 2px 7px rgba(0,0,0,.2);
+    }
+    .hero-feature {
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 12px;
+      align-items: center;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,.22);
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.05;
+    }
+    .feature-icon {
+      width: 50px;
+      height: 50px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,.48);
+      border-radius: 8px;
+      background: rgba(255,255,255,.08);
+      font-size: 24px;
+    }
+
+    .stats {
+      background: #fff;
+      padding: 34px 0 18px;
+      position: relative;
+      z-index: 2;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      text-align: center;
+    }
+    .stat {
+      padding: 16px 12px;
+      border-right: 1px solid var(--line);
+    }
+    .stat:last-child { border-right: 0; }
+    .stat b {
+      display: block;
+      color: var(--deep);
+      font-size: 29px;
+      line-height: 1.1;
+      font-weight: 900;
+    }
+    .stat span { color: #444; font-weight: 700; }
+
+    section { padding: 72px 0; }
+    .section-title {
+      margin: 0 0 26px;
+      color: #2d2d2d;
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: 1.1;
+      font-weight: 900;
+    }
+    .eyebrow {
+      color: var(--deep);
+      text-transform: uppercase;
+      font-size: 13px;
+      font-weight: 850;
+      letter-spacing: .08em;
+      margin: 0 0 8px;
+    }
+    .muted { color: var(--muted); }
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 44px;
+      align-items: center;
+    }
+    .about-photo {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      max-height: 610px;
+    }
+    .about-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .check-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px 18px;
+      padding: 0;
+      margin: 18px 0;
+      list-style: none;
+    }
+    .check-list li:before { content: "✓"; color: var(--deep); font-weight: 900; margin-right: 8px; }
+    .quote {
+      padding: 18px 22px;
+      background: var(--sky);
+      border-left: 4px solid var(--deep);
+      font-weight: 700;
+      color: #1d4f6a;
+      margin: 18px 0;
+    }
+    .leadership {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 14px;
+      margin-top: 20px;
+    }
+    .mini-card {
+      padding: 18px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(0,0,0,.05);
+    }
+    .mini-card b { color: var(--deep); display: block; }
+
+    .hospitals { background: var(--soft); padding: 42px 0; }
+    .hospitals h3 { text-align: center; margin: 0 0 24px; font-size: 26px; }
+    .hospital-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+    .hospital-card {
+      text-align: center;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 16px 12px;
+      min-height: 150px;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 8px 22px rgba(4,38,60,.06);
+    }
+    .hospital-card img { max-height: 70px; object-fit: contain; margin: 0 auto 8px; }
+    .hospital-card b { color: #222; display: block; }
+    .hospital-card small { color: var(--muted); }
+
+    .centres { background: #fff; }
+    .centre-grid, .expertise-grid, .education-grid, .gallery-grid, .testimonial-grid, .location-grid {
+      display: grid;
+      gap: 22px;
+    }
+    .centre-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .centre-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 26px;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+    .centre-card img { height: 90px; object-fit: contain; margin-bottom: 18px; }
+    .centre-card strong { color: var(--deep); text-transform: uppercase; font-size: 12px; }
+
+    .expertise { background: #f7fbfd; }
+    .expertise-grid { grid-template-columns: repeat(4, minmax(0,1fr)); }
+    .expert-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 410px;
+      border-radius: 8px;
+      background: #012f49;
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+    .expert-card img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      opacity: .82;
+    }
+    .expert-body { padding: 22px; }
+    .expert-no {
+      position: absolute;
+      top: 150px;
+      left: 20px;
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      background: var(--deep);
+      color: #fff;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      font-weight: 900;
+    }
+    .expert-card h3 { margin: 8px 0 12px; line-height: 1.2; font-size: 18px; }
+    .expert-card ul { padding-left: 18px; margin: 0 0 16px; font-size: 14px; }
+    .read-more { color: #fff; font-weight: 800; border-bottom: 2px solid rgba(255,255,255,.65); }
+
+    .why {
+      color: #fff;
+      background:
+        linear-gradient(rgba(5,65,99,.92), rgba(5,65,99,.92)),
+        url("https://www.spinesurgeonmumbai.com/resources/assets/img/spine-surgeons-in-mumbai.webp") center/cover fixed;
+    }
+    .why .section-title, .why .eyebrow { color: #fff; }
+    .why-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 52px;
+      align-items: start;
+    }
+    .why-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+    .why-item {
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 8px;
+      padding: 18px;
+      font-weight: 750;
+    }
+    .journey {
+      display: grid;
+      gap: 14px;
+    }
+    .journey-step {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 14px;
+      align-items: center;
+      background: #fff;
+      color: #2f2f2f;
+      border-radius: 8px;
+      padding: 14px 18px;
+    }
+    .journey-step b {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--deep);
+      color: #fff;
+    }
+
+    .research { background: #fff; }
+    .research-grid {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 36px;
+      align-items: center;
+    }
+    .research-cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 18px;
+    }
+    .research-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 22px;
+      background: #fff;
+      box-shadow: 0 12px 26px rgba(0,0,0,.06);
+    }
+    .award-collage {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .award-collage img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+    .award-collage img:first-child { grid-row: span 2; height: 436px; }
+
+    .education { background: #f6f9fb; }
+    .education-grid { grid-template-columns: repeat(3, minmax(0,1fr)); }
+    .edu-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .edu-thumb {
+      height: 170px;
+      background: linear-gradient(135deg, #0b5e8d, #9ed6ee);
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-size: 42px;
+      font-weight: 900;
+    }
+    .edu-card h3 { padding: 18px; margin: 0; font-size: 18px; line-height: 1.35; }
+
+    .gallery-grid { grid-template-columns: repeat(4, minmax(0,1fr)); }
+    .gallery-item {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      aspect-ratio: 1;
+      box-shadow: var(--shadow);
+      background: #eaf3f8;
+    }
+    .gallery-item.tall { aspect-ratio: .72; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: .35s ease; }
+    .gallery-item:hover img { transform: scale(1.06); }
+
+    .testimonials { background: #fff; }
+    .testimonial-grid { grid-template-columns: repeat(4, minmax(0,1fr)); }
+    .testimonial {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 22px;
+      background: #fff;
+      box-shadow: 0 10px 28px rgba(0,0,0,.06);
+      min-height: 300px;
+    }
+    .testimonial p { font-size: 14px; margin-top: 0; }
+    .avatar {
+      display: inline-grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--deep);
+      color: #fff;
+      font-weight: 800;
+      margin-right: 9px;
+      vertical-align: middle;
+    }
+
+    .cta-band {
+      background: linear-gradient(90deg, var(--deep), #0a83b8);
+      color: #fff;
+      text-align: center;
+      padding: 58px 0;
+    }
+    .cta-band h2 { margin: 0 0 12px; font-size: clamp(30px,4vw,44px); line-height: 1.1; }
+    .cta-band p { max-width: 780px; margin: 0 auto 22px; }
+    .cta-band .btn { background: #fff; color: var(--deep); border-color: #fff; border-radius: 4px; }
+    .cta-band .btn.outline { background: transparent; color: #fff; border-color: rgba(255,255,255,.8); }
+
+    .locations { background: #f7fbfd; }
+    .location-grid { grid-template-columns: repeat(5, minmax(0,1fr)); margin-bottom: 24px; }
+    .location-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      text-align: center;
+      box-shadow: 0 8px 22px rgba(0,0,0,.05);
+    }
+    .location-card h4 { margin: 0 0 4px; color: var(--deep); font-size: 18px; }
+    .map-box {
+      height: 330px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      position: relative;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.58) 1px, transparent 1px) 0 0/60px 60px,
+        linear-gradient(rgba(255,255,255,.58) 1px, transparent 1px) 0 0/60px 60px,
+        #d9edf4;
+    }
+    .map-road, .map-road:before, .map-road:after {
+      position: absolute;
+      content: "";
+      background: #fff;
+      border: 1px solid #bdd7e4;
+      border-radius: 30px;
+      height: 22px;
+      width: 105%;
+      left: -2%;
+      top: 48%;
+      transform: rotate(-9deg);
+    }
+    .map-road:before { top: -90px; transform: rotate(20deg); }
+    .map-road:after { top: 92px; transform: rotate(14deg); }
+    .pin {
+      position: absolute;
+      width: 28px;
+      height: 28px;
+      background: var(--deep);
+      border: 4px solid #fff;
+      border-radius: 50% 50% 50% 0;
+      transform: rotate(-45deg);
+      box-shadow: 0 3px 10px rgba(0,0,0,.26);
+    }
+    .pin:nth-child(2) { left: 28%; top: 38%; }
+    .pin:nth-child(3) { left: 46%; top: 55%; }
+    .pin:nth-child(4) { left: 58%; top: 32%; }
+    .pin:nth-child(5) { left: 70%; top: 48%; }
+    .pin:nth-child(6) { left: 38%; top: 67%; }
+    .map-label {
+      position: absolute;
+      left: 24px;
+      bottom: 24px;
+      background: #fff;
+      border-radius: 8px;
+      padding: 14px 18px;
+      box-shadow: var(--shadow);
+      max-width: 330px;
+      font-size: 14px;
+    }
+
+    .footer {
+      background: #fff;
+      border-top: 1px solid var(--line);
+      padding: 44px 0 18px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr .8fr .7fr;
+      gap: 34px;
+      align-items: start;
+    }
+    .footer-logo { width: 230px; margin-bottom: 18px; }
+    .footer h4 { margin: 0 0 12px; color: #2f2f2f; }
+    .footer a { display: block; color: #4c5660; margin: 6px 0; font-size: 14px; }
+    .footer a:hover { color: var(--deep); }
+    .socials { display: flex; gap: 10px; }
+    .socials a {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      color: #fff;
+      background: var(--deep);
+      font-weight: 900;
+    }
+    .copyright {
+      border-top: 1px solid var(--line);
+      margin-top: 24px;
+      padding-top: 16px;
+      color: #66717a;
+      font-size: 14px;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .page-hero {
+      background: var(--deep);
+      color: #fff;
+      padding: 34px 0 46px;
+    }
+    .page-hero h1 {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: 40px;
+      margin: 0 0 10px;
+      color: #fff;
+    }
+    .breadcrumb { color: rgba(255,255,255,.9); font-size: 16px; }
+    .page-content { background: #fff; }
+    .content-card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 12px 34px rgba(0,0,0,.06);
+      border: 1px solid #edf2f5;
+      padding: 34px;
+    }
+    .rich h2 { color: #2f2f2f; margin: 8px 0 14px; font-size: 30px; line-height: 1.2; }
+    .rich h3 { color: var(--deep); margin: 24px 0 8px; }
+    .rich p { margin: 0 0 16px; }
+    .rich ul { margin-top: 6px; }
+    .heroish {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 34px;
+      align-items: start;
+    }
+    .heroish img {
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      width: 100%;
+      max-height: 520px;
+      object-fit: cover;
+    }
+    .team-gallery {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .team-gallery img { border-radius: 8px; height: 170px; width: 100%; object-fit: cover; }
+    .form-card {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 42px 68px;
+      border-radius: 2px;
+      box-shadow: 0 3px 22px rgba(0,0,0,.1);
+    }
+    .form-card h1, .form-card h2 { text-align: center; margin-top: 0; font-size: 30px; }
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 14px 28px;
+    }
+    .field.full { grid-column: 1 / -1; }
+    label { display: block; font-weight: 750; margin-bottom: 6px; }
+    .required { color: #c9302c; }
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid #d6dbe0;
+      border-radius: 3px;
+      min-height: 48px;
+      padding: 12px 14px;
+      background: #fff;
+      color: #333;
+    }
+    textarea { min-height: 112px; resize: vertical; }
+    .submit-row { text-align: center; margin-top: 18px; }
+    .faq-item {
+      border-bottom: 1px solid var(--line);
+      padding: 16px 0;
+    }
+    .faq-item h3 { margin: 0 0 8px; color: #2f2f2f; font-size: 18px; }
+    .link-cloud {
+      columns: 2;
+      column-gap: 30px;
+    }
+    .link-cloud a {
+      display: block;
+      break-inside: avoid;
+      padding: 7px 0;
+      color: var(--deep);
+      font-weight: 650;
+    }
+
+    @keyframes riseIn {
+      from { transform: translateY(28px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .reveal { opacity: 0; transform: translateY(22px); transition: .55s ease; }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 1080px) {
+      .brand { width: 210px; }
+      .nav-link { font-size: 14px; padding-left: 7px; padding-right: 7px; }
+      .header-cta { padding: 12px 16px; }
+      .hero-grid { grid-template-columns: 48% 28% 24%; }
+      .expertise-grid, .testimonial-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .hospital-grid, .location-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 860px) {
+      .container { width: min(100% - 30px, 1180px); }
+      .nav-wrap { height: 78px; }
+      .desktop-nav, .header-cta { display: none; }
+      .menu-toggle { display: block; }
+      .desktop-nav.open {
+        display: grid;
+        position: absolute;
+        top: 78px;
+        left: 0;
+        right: 0;
+        background: #fff;
+        padding: 10px 16px 18px;
+        box-shadow: var(--shadow);
+        max-height: calc(100vh - 78px);
+        overflow: auto;
+      }
+      .nav-link { padding: 10px 6px; }
+      .dropdown {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        border-top: 0;
+        max-height: none;
+        min-width: 0;
+        display: none;
+        padding-left: 14px;
+      }
+      .nav-item.open .dropdown { display: block; }
+      .hero { min-height: auto; }
+      .hero-grid {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding-top: 36px;
+      }
+      .hero-copy { padding: 20px 0 18px; }
+      .doctor-hero {
+        width: min(330px, 72vw);
+        order: 2;
+      }
+      .hero-features {
+        width: 100%;
+        order: 3;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0,1fr));
+        gap: 8px 20px;
+        margin-bottom: 42px;
+      }
+      .hero-feature { font-size: 16px; }
+      .stats-grid, .hospital-grid, .location-grid, .gallery-grid, .education-grid, .research-cards, .leadership, .centre-grid, .why-grid, .research-grid, .two-col, .heroish, .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .stat { border-right: 0; border-bottom: 1px solid var(--line); }
+      .check-list, .why-list, .form-grid { grid-template-columns: 1fr; }
+      .form-card { padding: 30px 18px; }
+      .team-gallery { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 520px) {
+      .brand { width: 198px; }
+      .hero h1 { font-size: 44px; }
+      .hero h2, .hero .lead { font-size: 22px; }
+      .hero-features { grid-template-columns: 1fr; }
+      .expertise-grid, .testimonial-grid { grid-template-columns: 1fr; }
+      .content-card { padding: 22px 16px; }
+      .link-cloud { columns: 1; }
+      .team-gallery { grid-template-columns: 1fr; }
+      .copyright { display: block; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home" data-page="home" aria-label="Spine Clinic home">
+        <img src="https://www.spinesurgeonmumbai.com/resources/assets/img/logo.webp" alt="Dr. Vishal Kundnani Logo">
+      </a>
+      <nav class="desktop-nav" id="mainNav" aria-label="Main navigation"></nav>
+      <a class="header-cta" href="#book-appointment" data-page="book-appointment">Book Consultation</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+    </div>
+  </header>
+
+  <main id="app"></main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img class="footer-logo" src="https://www.spinesurgeonmumbai.com/resources/assets/img/logo.webp" alt="Dr. Vishal Kundnani Logo">
+          <p><a href="tel:+919619200123">+919619200123</a> | <a href="tel:+918657500555">+918657500555</a></p>
+          <p><a href="mailto:spineclinicmumbai@gmail.com">spineclinicmumbai@gmail.com</a></p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <a href="#home" data-page="home">Home</a>
+          <a href="#spine-team" data-page="spine-team">Spine Team</a>
+          <a href="#about-doctor" data-page="about-doctor">Dr. Vishal Kundnani</a>
+          <a href="#scoliosis-india-foundation" data-page="scoliosis-india-foundation">Scoliosis India Foundation</a>
+          <a href="#blog" data-page="blog">Blog</a>
+          <a href="#testimonials" data-page="testimonials">Testimonials</a>
+          <a href="#contact" data-page="contact">Contact Us</a>
+        </div>
+        <div>
+          <h4>Important Link</h4>
+          <a href="#important-link" data-page="important-link">Important Link</a>
+          <a href="#faq" data-page="faq">Faq</a>
+          <a href="#book-appointment" data-page="book-appointment">Book Consultation</a>
+          <a href="#upload-mri" data-page="upload-mri">Upload MRI</a>
+          <a href="#terms-and-conditions" data-page="terms-and-conditions">Terms and Conditions</a>
+          <a href="#privacy-policy" data-page="privacy-policy">Privacy Policy</a>
+          <a href="#refund-policy" data-page="refund-policy">Refund Policy</a>
+        </div>
+        <div>
+          <h4>Follow Us On</h4>
+          <div class="socials">
+            <a href="https://www.facebook.com/spineclinicmumbai" aria-label="Facebook">f</a>
+            <a href="https://www.instagram.com/spinespecialistvishal/" aria-label="Instagram">◎</a>
+            <a href="https://www.youtube.com/@thespineclinicmumbai" aria-label="YouTube">▶</a>
+            <a href="https://www.linkedin.com/" aria-label="LinkedIn">in</a>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <span>© 2026 Dr. Vishal Kundnani. All Rights Reserved.</span>
+        <span><a href="#terms-and-conditions" data-page="terms-and-conditions">Terms and Conditions</a> · <a href="#privacy-policy" data-page="privacy-policy">Privacy Policy</a> · <a href="#refund-policy" data-page="refund-policy">Refund Policy</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const A = "https://www.spinesurgeonmumbai.com/resources/assets/";
+    const img = {
+      logo: A + "img/logo.webp",
+      doctorHero: A + "images/home/dr-vishal-kundanani-profile-new.jpeg",
+      doctorAbout: A + "img/dr-vishal.webp",
+      doctorRa: A + "images/home/dr-vishal-home-ra.jpg",
+      miss: A + "images/home/mumbai-institute-of-spine-surgery.jpg",
+      cess: A + "images/home/centre-of-excellence-in-spine-surgery.jpg",
+      surgery: A + "img/spine-surgeons-in-mumbai.webp",
+      cervical: A + "img/lumbar-spondylosis-treatment.webp",
+      scoliosis: A + "images/home/spine-care.webp",
+      slip: A + "img/slip%20disc.webp",
+      award: A + "images/home/award-img2.png",
+      outlook1: A + "images/home/outlook-img1.jpg",
+      outlook2: A + "images/home/outlook-img2.png",
+      outlook3: A + "images/home/outlook-img3.png",
+      media1: A + "img/media/1.webp",
+      media2: A + "img/media/2.webp",
+      media3: A + "img/media/3.webp",
+      media4: A + "img/media/4.webp",
+      g1: A + "img/gallery/b1.webp",
+      g2: A + "img/gallery/d1.webp",
+      g3: A + "img/gallery/c1.webp",
+      g4: A + "img/gallery/a1.webp",
+      abt1: A + "img/gallery/abt1.webp",
+      abt2: A + "img/gallery/abt2.webp",
+      abt3: A + "img/gallery/abt3.webp",
+      abt4: A + "img/gallery/abt4.webp",
+      lilavati: A + "images/home/lilavati-hospital-logo1.png",
+      bombay: A + "images/home/bombay-hospital-logo1.png",
+      breach: A + "images/home/breach-candy-hospital-logo1.png",
+      saifee: A + "images/home/saifee-hospital-logo1.png",
+      criticare: A + "images/home/criticare-hospitals-logo1.png"
+    };
+
+    const navGroups = [
+      {title:"Home", page:"home"},
+      {title:"About", items:[
+        ["Spine Team","spine-team"], ["Dr. Vishal Kundnani","about-doctor"], ["Scoliosis India Foundation","scoliosis-india-foundation"],
+        ["M.I.S.S","about-mumbai-institute-of-spine-surgery"], ["C.E.S.S","about-centre-of-excellence-in-spine-surgery"]
+      ]},
+      {title:"Conditions", items:[
+        ["Back Pain","back-pain"], ["Neck Pain","neck-pain"], ["Herniated Disc","herniated-disc"], ["Spinal Fusion","spinal-fusion"],
+        ["Spinal Stenosis","spinal-stenosis"], ["Spinal Injections","spinal-injections"], ["Spondylolisthesis","spondylolisthesis"],
+        ["Physiotherapy In Spine","physiotherapy-in-spine"], ["Exercises","exercises"], ["Minimal Invasive Spine Surgery","minimal-invasive-spine-surgery"],
+        ["Micro Endoscopic Minimal Invasive Spine Surgery","micro-endoscopic-minimal-invasive-spine-surgery"], ["Common Spinal Stenosis Questions","common-spinal-stenosis-questions"]
+      ]},
+      {title:"Treatments", items:[
+        ["Acute Low back Pain","acute-low-back-pain"], ["Ankylosing Spondylitis","ankylosing-spondylitis"], ["Back Pain","back-pain-we-treat"],
+        ["Back Pain in Pregnancy","back-pain-in-pregnancy"], ["Degenerative Disc Disease","degenerative-disc-disease"], ["Facet Syndrome","facet-syndrome"],
+        ["Failed Back Syndrome","failed-back-syndrome"], ["Kyphosis","kyphosis"], ["Lumbar Spondylosis","lumbar-spondylosis"],
+        ["Lumbarisation and Sacralisation","lumbarisation-and-sacralisation"], ["Neck Pain","neck-pain-we-treat"], ["Osteoporosis","osteoporosis"],
+        ["Sciatica","sciatica"], ["Scoliosis","scoliosis"], ["Slip Disc","what-is-a-slipped-disc-herniated-disc"], ["Spinal Stenosis","spinal-stenosis-we-treat"],
+        ["Spondylolysis and Spondylolisthesis","spondylolysis-and-spondylolisthesis"], ["Spondylosis","spondylosis"]
+      ]},
+      {title:"Patient Info", items:[
+        ["Case of Slip Disc","case-of-slip-disc"], ["Case of Minimal Invasive Spine Surgery","case-of-minimal-invasive-spine"],
+        ["Case of MIS TLIF - Spinal Fusion","case-of-mis-tlif-spinal-fusion"], ["Case of Spinal Stenosis","case-of-spinal-stenosis"]
+      ]},
+      {title:"Gallery", items:[["Image Gallery","image-gallery"], ["Video Gallery","video-gallery"], ["Patient Education","patient-education"], ["Blog","blog"], ["Testimonials","testimonials"]]},
+      {title:"Contact Us", page:"contact"}
+    ];
+
+    const conditions = {
+      "back-pain": ["Back Pain", "Back pain is one of the most common reasons people visit a spine specialist. A detailed clinical assessment, posture review and imaging help identify whether pain is muscular, disc related, nerve related or due to spinal degeneration.", ["Persistent lower back pain", "Pain radiating to buttock or leg", "Numbness, tingling or weakness", "Pain after prolonged sitting or standing"], img.surgery],
+      "neck-pain": ["Neck Pain", "Neck pain may arise from posture, cervical disc prolapse, nerve compression, cervical spondylosis or spinal canal narrowing. Treatment is planned after careful examination and MRI review when needed.", ["Neck stiffness", "Shoulder or arm pain", "Headache related to posture", "Numbness in hand or fingers"], img.cervical],
+      "herniated-disc": ["Herniated Disc", "A herniated disc, slip disc or disc bulge occurs when inner disc material irritates or compresses nearby nerves. Many patients recover without surgery, while selected cases benefit from minimally invasive procedures.", ["Sciatica", "Leg pain", "Nerve compression", "Difficulty walking"], img.slip],
+      "spinal-fusion": ["Spinal Fusion", "Spinal fusion is used for selected unstable, painful or deformity-related spine conditions. The goal is to stabilise the affected segment while preserving function and improving quality of life.", ["Instability", "Spondylolisthesis", "Degenerative changes", "Revision surgery"], img.scoliosis],
+      "spinal-stenosis": ["Spinal Stenosis", "Spinal stenosis is narrowing of the spinal canal that can compress nerves. Symptoms often include leg pain while walking, heaviness, numbness or relief after bending forward.", ["Walking limitation", "Leg heaviness", "Nerve pain", "Lumbar canal stenosis"], img.surgery],
+      "spinal-injections": ["Spinal Injections", "Spinal injections can help reduce inflammation and pain in carefully selected patients. They are usually part of a broader plan including diagnosis, rehabilitation and lifestyle correction.", ["Targeted pain relief", "Non-surgical option", "Diagnostic support", "Rehabilitation support"], img.cervical],
+      "spondylolisthesis": ["Spondylolisthesis", "Spondylolisthesis is forward slipping of one vertebra over another. Treatment depends on grade, pain level, nerve compression and stability.", ["Back pain", "Leg pain", "Posture change", "Instability"], img.scoliosis],
+      "physiotherapy-in-spine": ["Physiotherapy In Spine", "Physiotherapy is central to spine recovery and prevention. Core strengthening, posture training, mobility and ergonomic correction are customised for each patient.", ["Core strengthening", "Posture training", "Pain control", "Recovery after surgery"], img.abt3],
+      "exercises": ["Exercises", "Specific spine exercises can improve flexibility, strength and movement confidence. Exercises should match the diagnosis and current pain stage.", ["Neck mobility", "Back strengthening", "Hamstring stretching", "Walking programme"], img.abt4],
+      "minimal-invasive-spine-surgery": ["Minimal Invasive Spine Surgery - General", "Minimally invasive spine surgery uses smaller approaches, magnification and precise instruments to treat selected spine problems with less tissue disruption and faster recovery.", ["Keyhole approach", "Reduced tissue injury", "Shorter hospital stay", "Faster mobilisation"], img.surgery],
+      "micro-endoscopic-minimal-invasive-spine-surgery": ["Micro Endoscopic Minimal Invasive Spine Surgery", "Micro-endoscopic spine surgery combines endoscopic access and microscopic precision for selected disc and stenosis conditions.", ["Small incision", "Precise nerve decompression", "Early mobilisation", "Modern technology"], img.surgery],
+      "common-spinal-stenosis-questions": ["Common Spinal Stenosis Questions", "Spinal stenosis questions usually relate to safety, timing of surgery, walking ability and non-surgical care. Individual MRI review is important before deciding treatment.", ["Diagnosis", "MRI review", "Conservative care", "Surgical options"], img.cervical]
+    };
+    const treatmentSlugs = ["acute-low-back-pain","ankylosing-spondylitis","back-pain-we-treat","back-pain-in-pregnancy","degenerative-disc-disease","facet-syndrome","failed-back-syndrome","kyphosis","lumbar-spondylosis","lumbarisation-and-sacralisation","neck-pain-we-treat","osteoporosis","sciatica","scoliosis","what-is-a-slipped-disc-herniated-disc","spinal-stenosis-we-treat","spondylolysis-and-spondylolisthesis","spondylosis"];
+    const treatmentNames = ["Acute Low back Pain","Ankylosing Spondylitis","Back Pain","Back Pain in Pregnancy","Degenerative Disc Disease","Facet Syndrome","Failed Back Syndrome","Kyphosis","Lumbar Spondylosis","Lumbarisation and Sacralisation","Neck Pain","Osteoporosis","Sciatica","Scoliosis","Slip Disc","Spinal Stenosis","Spondylolysis and Spondylolisthesis","Spondylosis"];
+    treatmentSlugs.forEach((slug, i) => {
+      conditions[slug] = [treatmentNames[i], `${treatmentNames[i]} is assessed with a careful history, clinical examination and relevant imaging. Dr. Vishal Kundnani's team focuses on evidence-based treatment, conservative care whenever suitable, and precise surgery only when clearly indicated.`, ["Clinical assessment", "MRI and X-ray review", "Non-surgical treatment options", "Minimally invasive surgery when needed"], [img.surgery,img.cervical,img.scoliosis,img.slip][i%4]];
+    });
+
+    function makeNav() {
+      const nav = document.getElementById("mainNav");
+      nav.innerHTML = navGroups.map(group => {
+        if (!group.items) return `<div class="nav-item"><a class="nav-link" href="#${group.page}" data-page="${group.page}">${group.title}</a></div>`;
+        return `<div class="nav-item"><a class="nav-link" href="javascript:void(0)">${group.title}<span class="chev"></span></a><div class="dropdown">${group.items.map(([t,p]) => `<a href="#${p}" data-page="${p}">${t}</a>`).join("")}</div></div>`;
+      }).join("");
+    }
+
+    function hospitals() {
+      return `<section class="hospitals"><div class="container">
+        <h3>Consultant Spine Surgeon at Leading Mumbai Hospitals</h3>
+        <div class="hospital-grid">
+          ${[
+            ["Lilavati Hospital","Mumbai",img.lilavati],["Bombay Hospital","Mumbai",img.bombay],["Breach Candy Hospital","Mumbai",img.breach],["Saifee Hospital","Mumbai",img.saifee],["Criticare Hospitals","Mumbai",img.criticare]
+          ].map(h => `<div class="hospital-card reveal"><img src="${h[2]}" alt="${h[0]}"><b>${h[0]}</b><small>${h[1]}</small></div>`).join("")}
+        </div>
+      </div></section>`;
+    }
+
+    function locations() {
+      return `<section class="locations"><div class="container">
+        <h3 class="section-title">Our Locations</h3>
+        <div class="location-grid">
+          ${[["Bandra","Lilavati Hospital"],["Churchgate","Bombay Hospital"],["Malad","Spine Clinic"],["Borivali","Spine Clinic"],["Khar","Spine Clinic"]].map(x => `<div class="location-card reveal"><h4>${x[0]}</h4><p>${x[1]}</p></div>`).join("")}
+        </div>
+        <div class="map-box reveal" aria-label="Mumbai clinic location map">
+          <div class="map-road"></div><div class="pin"></div><div class="pin"></div><div class="pin"></div><div class="pin"></div><div class="pin"></div>
+          <div class="map-label"><b>Bandra - Lilavati Hospital</b><br>Room 8/9, OPD block, Ground Floor, Bandra Reclamation Rd, Bandra West, Mumbai - 400050<br><b>+91 9619200123</b> &nbsp; <b>+91 8657500555</b></div>
+        </div>
+      </div></section>`;
+    }
+
+    function home() {
+      return `<section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <h1>Dr. Vishal<br>Kundnani</h1>
+            <h2>Minimally Invasive, Cervical &<br>Scoliosis Spine Surgeon in Mumbai</h2>
+            <p class="lead">Advanced Spine Surgery with Faster Recovery<br>and Personalised Care</p>
+            <p>Dr. Vishal Kundnani is a specialist spine surgeon in Mumbai with expertise in minimally invasive spine surgery, endoscopic spine surgery, cervical spine surgery, cervical disc replacement and complex scoliosis and spinal deformity correction.</p>
+            <div class="cta-row">
+              <a class="btn" href="#book-appointment" data-page="book-appointment">BOOK CONSULTATION</a>
+              <a class="btn outline" href="#upload-mri" data-page="upload-mri">UPLOAD MRI<br><small>FOR EXPERT OPINION</small></a>
+              <a class="btn outline" href="#spine-second-opinion" data-page="spine-second-opinion">GET A SECOND<br>OPINION</a>
+            </div>
+          </div>
+          <img class="doctor-hero" src="${img.doctorHero}" alt="Dr. Vishal Kundnani">
+          <div class="hero-features">
+            ${[["⌬","Precision<br>Technology"],["⊞","Minimally<br>Invasive"],["♿","Faster<br>Recovery"],["◆","Better<br>Outcomes"]].map(x => `<div class="hero-feature"><span class="feature-icon">${x[0]}</span><span>${x[1]}</span></div>`).join("")}
+          </div>
+        </div>
+      </section>
+      <section class="stats"><div class="container"><div class="stats-grid">
+        ${[["8000+","Spine Surgeries"],["30000+","Patients Treated"],["100+","Publications & Presentations"],["20+","Years Experience"],["Gold","Medalist"]].map(s => `<div class="stat"><b>${s[0]}</b><span>${s[1]}</span></div>`).join("")}
+      </div></div></section>
+      ${hospitals()}
+      <section><div class="container two-col">
+        <div class="rich reveal">
+          <h2 class="section-title">About Dr. Vishal Kundnani</h2>
+          <p>Dr Vishal Kundnani focuses on advanced spine care combining surgical expertise, modern technology and personalised treatment planning.</p>
+          <p>Dr Vishal Kundnani is recognised for his expertise in complex and minimally invasive spine surgery, with special interest in:</p>
+          <ul class="check-list"><li>Minimally invasive spine surgery</li><li>Endoscopic spine surgery</li><li>Cervical spine surgery</li><li>Cervical disc replacement</li><li>Scoliosis and spinal deformity correction</li><li>Complex revision spine surgery</li></ul>
+          <div class="quote">His philosophy: "The right treatment for the right patient at the right time."</div>
+          <p>Not every spine condition requires surgery. Every patient undergoes detailed assessment to decide between rehabilitation, conservative treatment or surgery.</p>
+          <div class="leadership">${[["Clinical Director","Mumbai Institute of Spine Surgery"],["Head of Department","Clinical Spine Services, Centre of Excellence in Spine Surgery"],["Founder","Spine Expert India"],["Trustee","Swasthya Foundation and WCP Foundation"]].map(x => `<div class="mini-card"><b>${x[0]}</b>${x[1]}</div>`).join("")}</div>
+          <p><a class="btn" href="#about-doctor" data-page="about-doctor">Know More About Doctor</a></p>
+        </div>
+        <div class="about-photo reveal"><img src="${img.doctorHero}" alt="Dr. Vishal Kundnani"></div>
+      </div></section>
+      <section class="centres"><div class="container">
+        <h2 class="section-title">Our Centres of Excellence</h2>
+        <div class="centre-grid">
+          <div class="centre-card reveal"><strong>Premier Spine Care Center</strong><img src="${img.miss}" alt="M.I.S.S"><h3>Mumbai Institute of Spine Surgery (M.I.S.S)</h3><p>A premier spine care centre in Mumbai offering advanced treatment for complex spinal disorders with expert surgical and non-surgical care.</p><p>Led by Dr. Vishal Kundnani, with a team of experienced spine specialists, physiotherapists, and pain care experts.</p></div>
+          <div class="centre-card reveal"><strong>Advanced Surgical Clinic</strong><img src="${img.cess}" alt="C.E.S.S"><h3>Centre of Excellence in Spine Surgery (C.E.S.S) - MSSG</h3><p>A specialised spine centre providing advanced minimally invasive and complex spine surgeries with world-class expertise.</p><p>Under Dr. Vishal Kundnani's leadership, offering keyhole, endoscopic, and technology-driven spine solutions.</p></div>
+        </div>
+      </div></section>
+      <section class="expertise"><div class="container">
+        <h2 class="section-title">Specialised Spine Surgery Expertise</h2>
+        <div class="expertise-grid">
+          ${[
+            ["1","MINIMALLY INVASIVE & ENDOSCOPIC SPINE SURGERY",img.surgery,["Minimally Invasive Spine Surgery","Endoscopic Spine Surgery","Slip Disc Surgery","Sciatica Surgery","Spinal Stenosis Treatment"],"minimal-invasive-spine-surgery"],
+            ["2","CERVICAL SPINE SURGERY & CERVICAL DISC REPLACEMENT",img.cervical,["Cervical Disc Prolapse","Cervical Radiculopathy","Cervical Myelopathy","Cervical Canal Stenosis","Neck pain and arm pain"],"back-pain"],
+            ["3","SCOLIOSIS & SPINAL DEFORMITY SURGERY",img.scoliosis,["Adolescent Scoliosis","Adult Degenerative Scoliosis","Complex Spinal Deformity","Revision Spine Surgery"],"scoliosis"],
+            ["4","SLIP DISC, SCIATICA & SPINAL STENOSIS",img.slip,["Slip Disc","Sciatica","Back Pain","Leg Pain","Nerve Compression","Spinal Stenosis"],"what-is-a-slipped-disc-herniated-disc"]
+          ].map(c => `<article class="expert-card reveal"><img src="${c[2]}" alt="${c[1]}"><div class="expert-no">${c[0]}</div><div class="expert-body"><h3>${c[1]}</h3><ul>${c[3].map(i=>`<li>${i}</li>`).join("")}</ul><a class="read-more" href="#${c[4]}" data-page="${c[4]}">Read More</a></div></article>`).join("")}
+        </div>
+      </div></section>
+      <section class="why"><div class="container why-grid">
+        <div class="reveal"><p class="eyebrow">Excellence in Spine Care</p><h2 class="section-title">Why Choose<br>Dr Vishal Kundnani?</h2><p>Dr. Vishal Kundnani is a leading spine surgeon in India, known for precision, artistry and patient-first care.</p><div class="why-list">${["Extensive spine surgery experience","International training","Expertise in minimally invasive techniques","Cervical and scoliosis surgery specialist","Research and academic contribution","Evidence-based treatment"].map(x=>`<div class="why-item">${x}</div>`).join("")}</div></div>
+        <div class="reveal"><h2>Patient Journey</h2><div class="journey">${["Consultation and clinical assessment","MRI and imaging review","Personalised treatment plan","Surgery or non-surgical care","Recovery and rehabilitation"].map((x,i)=>`<div class="journey-step"><b>${i+1}</b><span>${x}</span></div>`).join("")}</div></div>
+      </div></section>
+      <section class="research"><div class="container research-grid">
+        <div class="reveal"><h2 class="section-title">Research & Academic Expertise</h2><p>Advancing the field of spine surgery through continuous research and global education.</p><div class="research-cards">${[["Scientific Publications","Published in top international spine journals."],["Conference Presentations","Keynote speaker at global spine summits."],["Research Contributions","Pioneering minimally invasive techniques."],["Spine Education Initiatives","Mentoring the next generation of surgeons."]].map(x=>`<div class="research-card"><h3>${x[0]}</h3><p>${x[1]}</p></div>`).join("")}</div></div>
+        <div class="award-collage reveal"><img src="${img.outlook2}" alt="Awarded Best Spine Surgeon Mumbai"><img src="${img.outlook1}" alt="Outlook award"><img src="${img.outlook3}" alt="Award"></div>
+      </div></section>
+      ${educationSection()}
+      ${gallerySection()}
+      ${testimonialsSection()}
+      ${ctaBand()}
+      ${locations()}`;
+    }
+
+    function educationSection() {
+      return `<section class="education"><div class="container"><h2 class="section-title">Patient Education</h2><div class="education-grid">
+        ${["When Is Back Pain Serious? Red Flags You Should Never Ignore | Dr. Vishal Kundnani","Best Desk Job Exercises for Neck Pain & Posture Correction (In Hindi) | Dr. Aditi Tanna","How to Choose the Best Chair for Back Support | Dr. Vishal Kundnani"].map((t,i)=>`<article class="edu-card reveal"><div class="edu-thumb">${i+1}</div><h3>${t}</h3></article>`).join("")}
+      </div></div></section>`;
+    }
+
+    function gallerySection() {
+      return `<section><div class="container"><h2 class="section-title">Our Gallery</h2><h3>Media</h3><div class="gallery-grid">${[img.media1,img.media2,img.media3,img.media4].map(s=>`<a class="gallery-item tall reveal" href="${s}"><img src="${s}" alt="Media image"></a>`).join("")}</div><h3 style="margin-top:34px">Images</h3><div class="gallery-grid">${[img.g1,img.g2,img.g3,img.g4].map(s=>`<a class="gallery-item reveal" href="${s}"><img src="${s}" alt="Gallery image"></a>`).join("")}</div></div></section>`;
+    }
+
+    function testimonialsSection() {
+      const items = [
+        ["M","Mr. Ambave","पहले मेरी माँ के कमर का दर्द बहोत था । वह ठीक से चल भी नहीं पति थी । हमने बहुत डॉक्टर के पास इलाज करवाया पर कुछ असर नहीं हुआ । फिर मुझे डॉ. विशाल कुंदनानी का पता चला और इलाज करवाया।"],
+        ["V","Vijay Vera","My mother Shantaben Vera was having severe pain in back. She had fracture in lumbar and nerves were compressed. Dr. Vishal Kundnani operated her and from the third day she was able to walk on her own."],
+        ["M","Manud C Joseph","I was admitted at Bombay Hospital with hangman's fracture and underwent a surgery conducted by Dr. Vishal Kundnani which was successful. Everything from admission to discharge was a smooth process."],
+        ["S","Mrs. Shila U. Somaiya","I was going through terrible pain for months. I had Spine TB and got operated. I am feeling physically fit and can do my routine work. I am very happy with Dr. Vishal's treatment."]
+      ];
+      return `<section class="testimonials"><div class="container"><h2 class="section-title">What Our Patients Say</h2><div class="testimonial-grid">${items.map(t=>`<article class="testimonial reveal"><p>"${t[2]}"</p><div><span class="avatar">${t[0]}</span><b>${t[1]}</b></div></article>`).join("")}</div></div></section>`;
+    }
+
+    function ctaBand() {
+      return `<section class="cta-band"><div class="container"><h2>Take the First Step Towards a Pain-Free Life</h2><p>Book a consultation with Dr. Vishal Kundnani today. Experience world-class spine care, advanced minimally invasive treatments, and personalized recovery plans tailored just for you.</p><div class="cta-row" style="justify-content:center"><a class="btn" href="#book-appointment" data-page="book-appointment">Book Consultation</a><a class="btn outline" href="tel:+919619200123">+91 9619200123</a></div></div></section>`;
+    }
+
+    const pageData = {
+      "about-doctor": {
+        title:"About Us", crumb:"Dr. / Vishal Kundnani",
+        html:`<div class="heroish"><div class="rich"><h2>Dr. Vishal Kundnani</h2><h3>MS (Ortho) FASSI, FNUS, FNAMS.<br>Minimal Invasive Spine surgery specialist.<br>Specialist in Cervical Spine and scoliosis surgery.<br>Specialised in Microendosocpic Spine Surgery.<br>Director & Head of Spine Surgery-Center of Excellence in Spine Surgery, Lilavati Hospital, Bandra Mumbai.<br>Head - Mumbai Institute of Spine Surgery, Bombay Hospital, Mumbai.</h3><hr><p>Dr. Vishal Kundnani - gold medalist throughout his scholar years - is fellowship trained in spine surgery from international centers of repute including UK, Singapore, Japan, Australia, Malaysia and Korea. He has treated thousands of spine patients non surgically and performed successful microsurgery, minimal invasive spine surgery, cervical spine and scoliosis surgery.</p><p>He is known for innovation in awake day care spine surgery and minimal invasive spine surgery. He is internationally renowned for scoliosis and cervical surgery and has more than 100 international scientific research publications.</p><h3>Qualification</h3><ul><li>M.B.B.S. - Barkatullah University, Bhopal - Gold Medalist</li><li>M.S. Orthopedics - Rajasthan University of Health Science, Jaipur - Gold Medalist</li><li>F.A.S.S.I - Fellow Association of Spine Surgeons of India</li><li>F.N.U.S - Fellow of National University of Singapore</li><li>F.M.S.S - Fellow Minimal Invasive Spine Surgery, Seoul, Korea</li><li>F.N.A.M.S - Fellow National Academy of Medical Sciences</li></ul><h3>Awards & Achievements</h3><ul><li>Best Paper Award in spine surgery research</li><li>Young Surgeons Achiever Award</li><li>Best Doctor Mumbai - ESA Consultants Association</li><li>CNN Young Turk Healthcare Business Award</li></ul></div><img src="${img.doctorAbout}" alt="Dr. Vishal Kundnani"></div>`
+      },
+      "spine-team": {
+        title:"About Us", crumb:"Home Spine Team",
+        html:`<div class="rich"><h2>Spine Team</h2><p>Spine Team is a dedicated team of spinal surgeons involved in best spine care at Spine Clinic. The team-based approach covers back pain, neck pain, leg pain, sciatica, slip disc, spinal stenosis, herniated disc, scoliosis, minimal invasive spine surgery, endoscopic spine surgery and micro endoscopic spine surgery.</p><p>Spine Team comprises trained professionals involved in inpatient and outpatient care at various units of Spine Clinic and Mumbai Institute of Spine Surgery.</p><h3>Spine Surgeon Team</h3><p>Dr. Vishal Kundnani heads and guides the team under internationally formulated protocols. The team includes fellowship-trained spine surgeons, anaesthesia specialists, physiotherapists and patient coordinators.</p><h3>Spine Anaesthesia Team</h3><p>Senior spine anaesthetists support safe surgical care with dedicated protocols.</p><h3>Spine Physiotherapy Team</h3><p>Senior spine physiotherapists assist with rehabilitation, strengthening and recovery.</p><div class="team-gallery">${[img.abt1,img.abt2,img.abt3,img.abt4].map(s=>`<img src="${s}" alt="Spine team">`).join("")}</div></div>`
+      },
+      "scoliosis-india-foundation": {
+        title:"About Us", crumb:"Home Scoliosis India Foundation",
+        html:`<div class="heroish"><div class="rich"><p>SIF is an initiative taken by spine surgeons working together with an objective of helping eliminate scoliosis related disability through surgical and non-surgical methods.</p><h3>These objectives are:</h3><ul><li>Screening and identification of children with deformity</li><li>Providing information and guidance to parents</li><li>Giving patients best modality of treatment: conservative, bracing or surgical</li><li>Educating and spreading awareness about scoliosis</li></ul><h3>Our Vision</h3><p>To help children born with scoliosis receive treatment and live productive, active and healthy lives.</p><h3>Our Mission</h3><p>To give scoliosis patients from low economic strata access to proper treatment.</p><h3>About Scoliosis</h3><p>Symptoms may include uneven shoulders, one shoulder blade that sticks out, uneven hips, back pain and visible spinal curve.</p></div><img src="${img.doctorRa}" alt="Dr. Vishal Kundnani"></div>`
+      },
+      "about-mumbai-institute-of-spine-surgery": {
+        title:"M.I.S.S", crumb:"Mumbai Institute of Spine Surgery",
+        html:`<div class="heroish"><div class="rich"><h2>Mumbai Institute of Spine Surgery</h2><p>M.I.S.S is a premier spine care centre in Mumbai offering advanced treatment for complex spinal disorders with expert surgical and non-surgical care.</p><p>Led by Dr. Vishal Kundnani, the centre brings together spine specialists, physiotherapists and pain care experts for protocol-driven treatment.</p><ul><li>Minimally invasive spine surgery</li><li>Endoscopic spine surgery</li><li>Complex deformity correction</li><li>Evidence-based rehabilitation</li></ul></div><img src="${img.miss}" alt="Mumbai Institute of Spine Surgery"></div>`
+      },
+      "about-centre-of-excellence-in-spine-surgery": {
+        title:"C.E.S.S", crumb:"Centre of Excellence in Spine Surgery",
+        html:`<div class="heroish"><div class="rich"><h2>Centre of Excellence in Spine Surgery</h2><p>C.E.S.S is a specialised spine centre providing advanced minimally invasive and complex spine surgeries with world-class expertise.</p><p>Under Dr. Vishal Kundnani's leadership, it offers keyhole, endoscopic and technology-driven spine solutions.</p><ul><li>Cervical spine surgery</li><li>Scoliosis surgery</li><li>Revision spine surgery</li><li>Technology-driven spine care</li></ul></div><img src="${img.cess}" alt="Centre of Excellence in Spine Surgery"></div>`
+      },
+      "case-of-slip-disc": casePage("Case of Slip Disc", "A patient with severe sciatica due to slip disc can often be treated using minimally invasive decompression when conservative treatment fails.", img.slip),
+      "case-of-minimal-invasive-spine": casePage("Case of Minimal Invasive Spine Surgery", "Minimally invasive spine procedures use smaller incisions and focused access to reduce muscle disruption and support faster recovery.", img.surgery),
+      "case-of-mis-tlif-spinal-fusion": casePage("Case of MIS TLIF - Spinal Fusion", "MIS TLIF is used in selected cases requiring stabilisation while limiting tissue trauma compared with large open approaches.", img.scoliosis),
+      "case-of-spinal-stenosis": casePage("Case of Spinal Stenosis", "Spinal stenosis patients with walking difficulty and nerve compression may improve after precise decompression.", img.cervical),
+      "patient-education": {title:"Patient Education", crumb:"Home Patient Education", html: educationSection()},
+      "blog": {title:"Blog", crumb:"Home Blog", html:`<div class="rich"><h2>Patient Education Blog</h2><div class="education-grid">${["When Is Back Pain Serious? Red Flags You Should Never Ignore","Best Desk Job Exercises for Neck Pain & Posture Correction","How to Choose the Best Chair for Back Support","Understanding Slip Disc and Sciatica","When Should You Meet a Spine Surgeon?","Recovery After Minimally Invasive Spine Surgery"].map((t,i)=>`<article class="edu-card"><div class="edu-thumb">${i+1}</div><h3>${t}</h3></article>`).join("")}</div></div>`},
+      "testimonials": {title:"Testimonials", crumb:"Home Testimonials", html:testimonialsSection()},
+      "image-gallery": {title:"Image Gallery", crumb:"Home Image Gallery", html:gallerySection()},
+      "video-gallery": {title:"Video Gallery", crumb:"Home Video Gallery", html:`<div class="rich"><h2>Video Gallery</h2><div class="education-grid">${["Back Pain Red Flags","Desk Job Neck Exercises","Best Chair for Back Support"].map((t,i)=>`<article class="edu-card"><div class="edu-thumb">▶</div><h3>${t}</h3></article>`).join("")}</div></div>`},
+      "contact": {title:"Contact Us", crumb:"Home Contact Us", html:`<div class="heroish"><div class="rich"><h2>Contact Us</h2><p><b>Phone:</b> +91 9619200123 | +91 8657500555</p><p><b>Email:</b> spineclinicmumbai@gmail.com</p><p><b>Bandra:</b> Lilavati Hospital, Room 8/9, OPD block, Ground Floor, Bandra Reclamation Rd, Bandra West, Mumbai - 400050</p><p>Clinics are also available at Churchgate, Malad, Borivali and Khar.</p><p><a class="btn" href="#book-appointment" data-page="book-appointment">Book Consultation</a></p></div><div>${appointmentForm("Send Message", false)}</div></div>`},
+      "faq": {title:"Faq", crumb:"Home Frequently Asked Questions", html:faqPage()},
+      "important-link": {title:"IMPORTANT LINK", crumb:"Dr. Vishal Kundnani", html:importantLinks()},
+      "terms-and-conditions": {title:"Terms and Conditions", crumb:"Home Terms and Conditions", html:termsPage()},
+      "privacy-policy": {title:"Privacy Policy", crumb:"Home Privacy Policy", html:privacyPage()},
+      "refund-policy": {title:"Refund Policy", crumb:"Home Refund Policy", html:refundPage()}
+    };
+
+    function casePage(title, desc, photo) {
+      return {title:"Patient Info", crumb:title, html:`<div class="heroish"><div class="rich"><h2>${title}</h2><p>${desc}</p><h3>Patient Journey</h3><ul><li>Clinical examination and diagnosis</li><li>MRI and imaging review</li><li>Personalised treatment plan</li><li>Procedure or non-surgical care as indicated</li><li>Recovery and rehabilitation guidance</li></ul><p><a class="btn" href="#book-appointment" data-page="book-appointment">Book Consultation</a></p></div><img src="${photo}" alt="${title}"></div>`};
+    }
+
+    function appointmentForm(title = "Book Appointment", file = false) {
+      return `<form class="form-card" onsubmit="event.preventDefault(); alert('Thank you. This demo form is ready for integration.');"><h2>${title}</h2><div class="form-grid">
+        <div class="field"><label>Full Name <span class="required">*</span></label><input required placeholder="Enter Your Full Name"></div>
+        <div class="field"><label>Email Address <span class="required">*</span></label><input type="email" required placeholder="Enter Your Email"></div>
+        <div class="field"><label>Mobile Number <span class="required">*</span></label><input required placeholder="10-digit mobile number"></div>
+        ${file ? `<div class="field"><label>Upload MRI (Max 5MB) <span class="required">*</span></label><input type="file" required></div>` : `<div class="field"><label>Appointment Date <span class="required">*</span></label><input type="date" required></div>`}
+        ${file ? "" : `<div class="field full"><label>Preferred Location <span class="required">*</span></label><select required><option>Select appointment location</option><option>Lilavati Hospital, Bandra</option><option>Bombay Hospital, Churchgate</option><option>Spine Clinic, Borivali</option><option>Spine Clinic, Malad</option></select></div>`}
+        <div class="field full"><label>${file ? "Description / Concern" : "Appointment Note"} ${file ? '<span class="required">*</span>' : ""}</label><textarea ${file ? "required" : ""} placeholder="Briefly describe your condition...."></textarea></div>
+      </div><div class="submit-row"><button class="btn" type="submit">${file ? "Submit" : "Request Appointment"}</button></div></form>`;
+    }
+
+    function faqPage() {
+      const faqs = [
+        ["What Is A Herniated Disc / Slip Disc / Sciatica?","Intervertebral discs cushion spinal movement. A herniated disc occurs when inner gel material pushes through the outer ring and irritates or compresses a nerve."],
+        ["What Causes A Herniated Disc / Disc Bulge / Sciatica?","Age-related degeneration, lifting, twisting injury, posture, weakness and genetic tendency may contribute."],
+        ["What Are Some Non-Surgical Ways To Deal With Slip Disc?","Medication, guided physiotherapy, activity modification, posture correction and selective injections may help many patients."],
+        ["Will I Need Surgery?","Surgery is considered when pain, weakness, walking difficulty or nerve compression persists despite appropriate non-surgical care, or when there are urgent neurological symptoms."],
+        ["What Kinds Of Surgery Are Used?","Microscopic, endoscopic and minimally invasive spine surgery may be used depending on diagnosis and anatomy."],
+        ["Is Spinal Surgery Safe?","Modern protocols, imaging, magnification and careful patient selection have improved safety, but every procedure requires individual risk discussion."]
+      ];
+      return `<div class="rich"><h2>Frequently Asked Questions About slip disc / Sciatica / Disc bulge / Herniated Discs</h2>${faqs.map(f=>`<div class="faq-item"><h3>${f[0]}</h3><p>${f[1]}</p></div>`).join("")}</div>`;
+    }
+
+    function importantLinks() {
+      const links = ["Best Spine Doctor In Bandra","Best Spine Specialist In Bandra","Best Spine Surgeon In Bandra","Best Back Pain Doctor In Bandra","Best Neck Pain Doctor In Bandra","Best Slip Disc Doctor In Bandra","Best Spine Surgeon in Mumbai","Best Spine Surgeons in Mumbai","Best Spine Surgeons in India","Top 10 Spine Doctors in India","Top Spine Surgeons in India","Spine Surgeon in Borivali","Spine Surgeon in Goregaon","Spine Surgeon in Churchgate","Spine Surgeon in South Mumbai"];
+      return `<div class="rich"><h2>IMPORTANT LINK</h2><div class="link-cloud">${links.map(l=>`<a href="#contact" data-page="contact">› ${l}</a>`).join("")}</div><h2>WE TREAT</h2><div class="link-cloud">${treatmentSlugs.map((s,i)=>`<a href="#${s}" data-page="${s}">› ${treatmentNames[i]}</a>`).join("")}</div></div>`;
+    }
+
+    function termsPage() {
+      return `<div class="rich"><h2>Terms and Conditions</h2><p>This website is intended for general patient education and appointment enquiries. Information provided here should not be treated as a substitute for professional medical consultation, diagnosis or treatment.</p><h3>Medical Disclaimer</h3><p>Every spine condition is different. Treatment decisions should be made only after clinical examination, review of imaging and discussion with a qualified medical professional.</p><h3>Appointments and Forms</h3><p>Submitting a form does not confirm an appointment until the clinic team contacts you. Please do not use website forms for emergencies.</p><h3>Content and Images</h3><p>Logo, doctor images and clinical imagery belong to their respective owners and are used here as requested for the website recreation.</p><h3>Contact</h3><p>For appointments or questions, call +91 9619200123 or email spineclinicmumbai@gmail.com.</p></div>`;
+    }
+
+    function privacyPage() {
+      return `<div class="rich"><h2>Privacy Policy</h2><p>We respect your privacy and are committed to protecting information shared through this website for appointment, MRI upload, contact and second-opinion enquiries.</p><h3>Information We Collect</h3><p>We may collect your name, phone number, email address, preferred appointment location, appointment note, medical concern and files voluntarily uploaded by you.</p><h3>How We Use Information</h3><p>Your information is used only to respond to enquiries, schedule consultations, review submitted medical details and communicate with you about spine care services.</p><h3>Data Sharing</h3><p>We do not sell personal information. Information may be shared with clinic staff, doctors or service providers only when needed to handle your request.</p><h3>Medical Information</h3><p>Please share medical reports only when you are comfortable doing so. Online submissions are not a replacement for in-person clinical assessment.</p><h3>Contact</h3><p>For privacy questions, call +91 9619200123 or email spineclinicmumbai@gmail.com.</p></div>`;
+    }
+
+    function refundPage() {
+      return `<div class="rich"><h2>Refund Policy</h2><p>This policy applies to appointment booking payments and consultation-related payments made through this website or clinic communication channels.</p><h3>Appointment Money</h3><p><b>Appointment money is not refunded.</b> Once an appointment payment is made, it is treated as confirmation/booking support for the selected consultation slot and is non-refundable.</p><h3>Rescheduling</h3><p>If you cannot attend your appointment, please contact the clinic as early as possible. Rescheduling may be considered subject to doctor availability and clinic discretion.</p><h3>Missed Appointments</h3><p>No refund will be provided for missed appointments, late cancellations or failure to attend the booked consultation slot.</p><h3>Exceptional Cases</h3><p>Any exception, credit adjustment or rescheduling support will be handled only at the discretion of the clinic management.</p><h3>Contact</h3><p>For refund or appointment payment queries, call +91 9619200123 or email spineclinicmumbai@gmail.com.</p></div>`;
+    }
+
+    function genericCondition(page) {
+      const data = conditions[page];
+      return `<div class="heroish"><div class="rich"><h2>${data[0]}</h2><p>${data[1]}</p><h3>Common Concerns</h3><ul>${data[2].map(x=>`<li>${x}</li>`).join("")}</ul><h3>Treatment Approach</h3><p>Care begins with consultation and clinical assessment, followed by MRI or imaging review where necessary. The treatment plan may include rehabilitation, non-surgical care, injections or minimally invasive surgery depending on symptoms and diagnosis.</p><p><a class="btn" href="#book-appointment" data-page="book-appointment">Book Consultation</a></p></div><img src="${data[3]}" alt="${data[0]}"></div>`;
+    }
+
+    function pageShell(title, crumb, body) {
+      return `<section class="page-hero"><div class="container"><h1>${title}</h1><div class="breadcrumb">${crumb}</div></div></section><section class="page-content"><div class="container"><div class="content-card reveal">${body}</div></div></section>${locations()}`;
+    }
+
+    function render(page) {
+      const app = document.getElementById("app");
+      if (page === "home") app.innerHTML = home();
+      else if (page === "book-appointment") app.innerHTML = `<section class="page-content" style="background:#f6f8fb"><div class="container">${appointmentForm()}</div></section>${locations()}`;
+      else if (page === "upload-mri") app.innerHTML = `<section class="page-hero"><div class="container"><h1>Upload MRI</h1><div class="breadcrumb">For Expert Opinion</div></div></section><section class="page-content" style="background:#f6f8fb"><div class="container">${appointmentForm("Upload MRI", true)}</div></section>${locations()}`;
+      else if (page === "spine-second-opinion") app.innerHTML = pageShell("Expert Spine Second Opinion", "Unsure About Spine Surgery? Get Expert Guidance.", `<div class="rich"><h2>Get a Second Opinion Before Spine Surgery</h2><p>Being advised to undergo spine surgery can be overwhelming. Before making an important decision about your health, seek a trusted second opinion from experienced spine specialists.</p><p>Our second opinion service helps patients better understand diagnosis, treatment options, and whether surgery is truly necessary. In many cases, alternative treatments or minimally invasive approaches may also be available.</p><h3>Why Seek a Second Opinion?</h3><ul><li>Confirm your diagnosis and treatment plan</li><li>Understand if surgery is necessary</li><li>Explore minimally invasive or non-surgical options</li><li>Gain confidence before treatment</li><li>Review MRI scans, CT scans, X-rays and reports</li></ul><h3>How It Works</h3><ol><li>Upload your MRI scans and medical reports.</li><li>Our spine expert reviews your case.</li><li>Receive expert opinion and treatment recommendations.</li></ol><p><b>Call Us:</b> +918657500555<br><b>Email:</b> spineclinicmumbai@gmail.com</p></div>`);
+      else if (conditions[page]) {
+        const data = conditions[page];
+        app.innerHTML = pageShell(data[0], "Home " + data[0], genericCondition(page));
+      } else {
+        const data = pageData[page] || pageData["important-link"];
+        app.innerHTML = pageShell(data.title, data.crumb, data.html);
+      }
+      document.querySelectorAll(".nav-link").forEach(a => a.classList.toggle("active", a.dataset.page === page || (page !== "home" && a.textContent.trim() === "Home" && false)));
+      observeReveals();
+      window.scrollTo({top:0, behavior:"smooth"});
+      document.getElementById("mainNav").classList.remove("open");
+    }
+
+    function observeReveals() {
+      const items = document.querySelectorAll(".reveal");
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add("in"); });
+      }, {threshold:.12});
+      items.forEach(item => obs.observe(item));
+      setTimeout(() => items.forEach(item => item.classList.add("in")), 500);
+    }
+
+    document.addEventListener("click", e => {
+      const link = e.target.closest("[data-page]");
+      if (!link) return;
+      const page = link.dataset.page;
+      if (!page) return;
+      e.preventDefault();
+      if (location.hash === "#" + page) render(page);
+      else location.hash = page;
+    });
+
+    document.getElementById("menuToggle").addEventListener("click", () => {
+      document.getElementById("mainNav").classList.toggle("open");
+    });
+    document.addEventListener("click", e => {
+      const item = e.target.closest(".nav-item");
+      if (item && window.innerWidth <= 860 && item.querySelector(".dropdown") && e.target.closest(".nav-link")) {
+        item.classList.toggle("open");
+      }
+    });
+
+    makeNav();
+    window.addEventListener("hashchange", () => render((location.hash || "#home").replace("#","") || "home"));
+    render((location.hash || "#home").replace("#","") || "home");
+  </script>
+</body>
+</html>
